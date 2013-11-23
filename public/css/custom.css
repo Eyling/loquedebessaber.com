@@ -532,7 +532,7 @@ li.L9 {
     }
 
     #header a {
-        font-size: 1.1em !important;
+        font-size: 1.8em !important;
     }
 
     #header img {
@@ -557,6 +557,11 @@ li.L9 {
 
     .my-image{
         height: 100px !important;
+    }
+
+
+    #header a {
+        font-size: 1.1em !important;
     }
 }
 
