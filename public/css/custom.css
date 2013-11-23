@@ -511,6 +511,26 @@ li.L9 {
 
 
 }
+
+
+@media screen and (max-width: 250px) {
+    body,html{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .container{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .my-image{
+        height: 100px;
+    }
+
+
+}
+
+
 blockquote {
     border-left: 4px solid #ddd;
     margin: 0 20px;
