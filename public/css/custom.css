@@ -543,6 +543,10 @@ li.L9 {
     .thumbnails .span4 img{
         height: 180px !important;
     }
+
+    .thumbnails .span4 a .tt{
+        font-size: 1.1em;
+    }
 }
 
 @media screen and (max-width: 320px) {
