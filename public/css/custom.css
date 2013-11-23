@@ -469,7 +469,7 @@ li.L9 {
 
 
     .thumbnails{
-        padding: 0px;
+        padding: 0px !important;
     }
 
     .my-article{
