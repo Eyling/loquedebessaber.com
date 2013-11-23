@@ -536,8 +536,8 @@ li.L9 {
         height: 32px !important;
     }
 
-    .thumbnails .span4{
-        height: 200px !important;
+    .thumbnails .span4 img{
+        height: 180px !important;
     }
 }
 
