@@ -492,8 +492,12 @@ li.L9 {
         margin: 0px !important;
     }
 
-    .my-author .data p, .my-author .data h1{
+    .my-author .data p{
         padding: 20px !important;
+    }
+
+    .my-author .data h1{
+        text-align: center !important;
     }
 
     .my-connections{
