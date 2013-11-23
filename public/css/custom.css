@@ -473,7 +473,7 @@ li.L9 {
     }
 
     .my-article{
-        width: 100%;
+        width: 90% !important;
         float: none;
     }
 
