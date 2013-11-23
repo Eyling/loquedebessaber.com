@@ -524,13 +524,6 @@ div.date{
     font-size: 12px;
 }
 
-.my-home{
-    position: relative;
-    overflow: hidden;
-    width: 900px;
-    margin: 0px auto;
-
-}
 
 .thumbnails .span4 a .tt{
     font-size: 2.1em;
@@ -619,7 +612,7 @@ div.date{
     position: relative;
     overflow: hidden;
     margin: 0 auto;
-    width: 900px;
+    width: 80%;
 }
 
 #disqus_thread{
