@@ -480,6 +480,8 @@ li.L9 {
     .my-author .image{
         float: none  !important;
         width: 100% !important;
+        position: relative;
+        overflow: hidden;
 
     }
 
