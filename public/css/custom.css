@@ -526,6 +526,10 @@ li.L9 {
     .my-image{
         height: 200px !important;
     }
+
+    #header a {
+        font-size: 1.1em !important;
+    }
 }
 
 @media screen and (max-width: 320px) {
