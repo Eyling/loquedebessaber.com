@@ -576,6 +576,10 @@ li.L9 {
         height: 220px;
     }
 
+    .thumbnails{
+        padding: 0px;
+    }
+
 }
 blockquote {
     border-left: 4px solid #ddd;
