@@ -482,6 +482,7 @@ li.L9 {
         width: 100% !important;
         position: relative;
         overflow: hidden;
+        text-align: center !important;
 
     }
 
@@ -606,6 +607,7 @@ div.date{
     position: relative;
     overflow: hidden;
     margin-left: 150px;
+    padding: 20px;
 }
 
 .my-author .data h3{
