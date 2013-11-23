@@ -504,6 +504,7 @@ li.L9 {
     .my-connections{
         border-left: 0 !important;
         border-radius: 0 !important;
+        text-align: center !important;
     }
 
     .my-image{
