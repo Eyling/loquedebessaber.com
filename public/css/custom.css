@@ -595,9 +595,9 @@ div.date{
 }
 
 .my-author .image{
-    position: absolute;
-    top: 20px;
-    left: 30px;
+    float: left;
+    position: relative;
+    overflow: hidden;
 
 }
 
