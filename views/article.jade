@@ -1,0 +1,27 @@
+extend layout
+block content
+    div(class="my-article")
+        div(class="article") !{data.content}
+        div(class="my-author")
+            div(class="image")
+                img(class="img-circle", src="http://www.gravatar.com/avatar/#{data.author.picture}?r=pg&s=100.jpg&d=identicon")
+            div(class="data")
+                h3 #{data.author.name}
+                p #{data.author.bio}
+                div(class="my-connections")
+                    - if (data.author.connections.length > 0)
+                        each connection in data.author.connections
+                            a(href="#{connection.url}",target="_blank") #{connection.name}
+                            span |
+        div(id="disqus_thread")
+        script.
+            var disqus_shortname = 'loquedebessaber';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+
+            $(document).on("ready",function(){
+                $(".my-article h1:first-child" ).after( '<div class="my-image" style="background-image: url(#{data.thumbnails})"></div>' )
+            });

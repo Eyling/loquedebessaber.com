@@ -1,0 +1,9 @@
+extend layout
+block content
+            ul(class="thumbnails")
+                each item_articles in data.articles.rows
+                    li(class="span4")
+                        a(href="#{item_articles.href}", class="thumbnail")
+                            img(src="#{item_articles.thumbnails}", alt="#{item_articles.title}")
+                            span(class="tt") #{item_articles.title}
+                            div(class="encimaimagen")
