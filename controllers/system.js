@@ -7,6 +7,7 @@ var path = require('path');
 var crypto = require('crypto');
 var moment = require('moment');
 var config = require('../config');
+var Feed = require('feed');
 moment.lang("es");
 
 // command lines puts
@@ -202,4 +203,50 @@ exports.article = function (req, res) {
     }
 
     return out();
+}
+
+exports.rss = function(req, res){
+    var feed = new Feed({
+        title:          'Lo que debes saber',
+        description:    'Blog enfocado en un sentido humanista.',
+        link:           'http://loquedebessaber.com/',
+        image:          'http://loquedebessaber.com/img/logo.png',
+        copyright:      'Todos los derechos reservados 2013, Eyling Montenegro',
+
+        author: {
+            name:       'Eyling Montenegro'
+        }
+    });
+
+
+    var data = {};
+    data.title = config.web.title;
+    data.type = 'home';
+    var path_articles = path.join(__dirname, '../', 'articles.json');
+
+    fs.readFile(path_articles, 'utf-8', function (err, articles) {
+        if (err){
+            res.send('Error loading JSON articles');
+        }
+        else{
+            var data = JSON.parse( articles );
+
+
+            data.rows.forEach(function(item){
+                feed.item({
+                    title:          item.title,
+                    link:           config.content.domain + item.href,
+                    date:           new Date(item.date_format),
+                    image:          item.thumbnails
+                });
+
+            });
+
+            var xml = feed.render('rss-2.0');
+
+            res.send( xml );
+
+        }
+    });
+
 }

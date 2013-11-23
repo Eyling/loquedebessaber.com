@@ -3,6 +3,7 @@ var content = {};
 content.repository = {};
 content.repository.url = 'https://github.com/Eyling/loquedebessaber_content.git';
 content.repository.name = 'loquedebessaber_content';
+content.domain = 'http://loquedebessaber.com/';
 
 exports.content = content;
 

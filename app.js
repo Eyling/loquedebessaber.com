@@ -11,5 +11,7 @@ app.get('/', controllers.system.home);
 app.get('/articulo/:slug', controllers.system.article);
 app.post('/hook', controllers.system.hook);
 
+app.get('/rss', controllers.system.rss);
+
 
 app.listen(1919);
