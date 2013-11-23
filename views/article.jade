@@ -23,5 +23,6 @@ block content
             })();
 
             $(document).on("ready",function(){
-                $(".my-article h1:first-child" ).after( '<div class="my-image" style="background-image: url(#{data.thumbnails})"></div>' )
+                $(".my-article h1:first-child" ).after( '<div class="my-image" style="background-image: url(#{data.thumbnails})"></div>' );
+                $(".my-article h1:first-child" ).after( '<div class="my-date"><i class="icon-time"></i> #{data.date}</div>' );
             });
