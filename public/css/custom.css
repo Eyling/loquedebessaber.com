@@ -526,8 +526,21 @@ li.L9 {
     .my-image{
         height: 200px !important;
     }
+}
 
+@media screen and (max-width: 320px) {
+    body,html{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .container{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 
+    .my-image{
+        height: 100px !important;
+    }
 }
 
 
