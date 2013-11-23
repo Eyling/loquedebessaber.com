@@ -762,4 +762,5 @@ div.date{
 
 .my-date{
     border-bottom: 1px solid #cccccc;
+    font-style: italic;
 }
