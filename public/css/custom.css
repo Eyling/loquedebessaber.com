@@ -423,85 +423,13 @@ pre code {
     color: #f8f7f2;
 }
 @media screen {
-    .str {
-        color: #e6d77a;
-    }
-    .kwd {
-        color: #e85274;
-    }
-    .com {
-        color: #485457;
-    }
-    .typ {
-        color: #f8f7f2;
-    }
-    .lit {
-        color: #b5d93a;
-    }
-    .pun,
-    .opn,
-    .clo {
-        color: #f8f7f2;
-    }
-    .tag {
-        color: #aaa;
-    }
-    .atn {
-        color: #e85274;
-    }
-    .atv {
-        color: #b5d83a;
-    }
-    .dec,
-    .var {
-        color: #f8f7f2;
-    }
-    .fun {
-        color: #e85379;
+    .thumbnails{
+        padding: 0px;
     }
 }
 @media print, projection {
-    pre code {
-        background-color: none;
-        display: block;
-        padding: 10px;
-        overflow: visible;
-    }
-    .pln {
-        color: #000;
-    }
-    .str {
-        color: #060;
-    }
-    .kwd {
-        color: #006;
-        font-weight: bold;
-    }
-    .com {
-        color: #600;
-        font-style: italic;
-    }
-    .typ {
-        color: #404;
-        font-weight: bold;
-    }
-    .lit {
-        color: #044;
-    }
-    .pun,
-    .opn,
-    .clo {
-        color: #440;
-    }
-    .tag {
-        color: #006;
-        font-weight: bold;
-    }
-    .atn {
-        color: #404;
-    }
-    .atv {
-        color: #060;
+    .thumbnails{
+        padding: 0px;
     }
 }
 pre.prettyprint {
@@ -539,46 +467,16 @@ li.L9 {
         padding: 0 !important;
     }
 
-    #main {
-        width: 100%;
-        float: none;
-    }
-    #sidebar {
-        float: none;
-        max-width: none;
-        width: auto;
-    }
-
-    #header .buttons{
-        float: none;
-    }
-
-    #header .buttons a.main{
-        padding: 4px 5px;
-        margin: 0;
-        line-height: 50px;
-    }
-
-    #main .article .author a{
-        padding: 0;
-        margin: 0;
-    }
-
-    #main .article .author .date{
-        position: relative;
-        overflow: hidden;
-        padding: 10px;
-        width: 100%;
-    }
-
-    .iframe{
-        width: 100%;
-        height: 220px;
-    }
 
     .thumbnails{
         padding: 0px;
     }
+
+    .my-article{
+        width: 100%;
+        float: none;
+    }
+
 
 }
 blockquote {
