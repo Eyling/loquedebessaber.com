@@ -759,3 +759,7 @@ div.date{
 .my-connections a{
     color: #31aae1;
 }
+
+.my-date{
+    border-bottom: 1px solid #cccccc;
+}
