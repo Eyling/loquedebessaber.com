@@ -10,6 +10,7 @@ var config = require('../config');
 var Feed = require('feed');
 moment.lang("es");
 
+
 // command lines puts
 function puts(error, stdout, stderr) {
     sys.puts(stdout);
