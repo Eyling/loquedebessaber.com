@@ -102,6 +102,9 @@ exports.hook  = function (req, res) {
                             if (error) {
                                 res.send(error)
                             }
+                            else{
+                                res.send(JSON.stringify(export_json));
+                            }
                         });
                     }
                 });
