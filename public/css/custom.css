@@ -486,6 +486,7 @@ li.L9 {
     .my-author .data{
         float: none  !important;
         width: 100% !important;
+        margin: 0px !important;
     }
 
 
