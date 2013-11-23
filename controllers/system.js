@@ -8,10 +8,6 @@ var crypto = require('crypto');
 var moment = require('moment');
 var config = require('../config');
 var Feed = require('feed');
-var MemJS = require("memjs").Client;
-
-memjs = MemJS.create(config.memcached.username+':'+config.memcached.password+'@'+config.memcached.server+':'+config.memcached.port,{});
-
 moment.lang("es");
 
 // command lines puts
@@ -27,30 +23,17 @@ exports.home = function (req, res) {
         data.type = 'home';
         var path_articles = path.join(__dirname, '../', 'articles.json');
 
-        var mkey = 'home';
-
-
-        memjs.get(mkey, function(err, value) {
-            console.log( 'DEBUG: ' + err );
-
-            if (value) {
-                res.render('index', { data: value });
+        fs.readFile(path_articles, 'utf-8', function (err, articles) {
+            if (err){
+                res.send('Error loading JSON articles');
             }
             else{
-                fs.readFile(path_articles, 'utf-8', function (err, data) {
-                    if (err){
-                        res.send('Error loading JSON articles file');
-                    }
-                    else{
-                        memjs.set(mkey, JSON.parse(data));
-
-                        res.render('index', { data: JSON.parse(data) });
-                    }
-                });
+                // set articles object
+                data.articles = JSON.parse( articles );
+                res.render('index', { data: data });
 
             }
         });
-
     }
 
     return out();
@@ -144,29 +127,7 @@ exports.hook  = function (req, res) {
 // articles
 exports.articles = function (req, res) {
     function out() {
-        var mkey = 'articles_file';
         var path_articles = path.join(__dirname, '../', 'articles.json');
-
-        memjs.get(mkey, function(err, value) {
-            if (value) {
-                res.render('articles', { data: value });
-            }
-            else{
-                fs.readFile(path_articles, 'utf-8', function (err, data) {
-                    if (err){
-                        res.send('Error loading JSON articles file');
-                    }
-                    else{
-                        memjs.set(mkey, JSON.parse(data));
-
-                        res.render('articles', { data: JSON.parse(data) });
-                    }
-                });
-
-            }
-        });
-
-       /*
 
         fs.readFile(path_articles, 'utf-8', function (err, data) {
             if (err){
@@ -176,7 +137,6 @@ exports.articles = function (req, res) {
                 res.render('articles', { data: JSON.parse(data) });
             }
         });
-        */
     }
 
     return out();
@@ -185,78 +145,6 @@ exports.articles = function (req, res) {
 // article
 exports.article = function (req, res) {
     function out() {
-
-        var mkey = req.params.slug;
-
-        memjs.get(mkey, function(err, value) {
-            if (value) {
-                res.render('article', { data: value });
-            }
-            else{
-                // set path to article files
-                var path_article_json = path.join(__dirname, '../' + config.content.repository.name + '/articles', req.params.slug + '.json');
-                var path_article_markdown = path.join(__dirname, '../' + config.content.repository.name + '/articles', req.params.slug + '.markdown');
-                // load article json
-                fs.readFile(path_article_json, 'utf8', function (err1, article_json) {
-                    if (err1) {
-                        res.send('Error loading JSON article file');
-                    }
-                    else {
-                        // load article markdown
-                        fs.readFile(path_article_markdown, 'utf8', function (err2, article_markdown) {
-                            if (err2) {
-                                res.send('Error loading MARKDOWN article file');
-                            }
-                            else {
-                                // set article object
-                                var article_obj = JSON.parse(article_json);
-
-                                // load author json
-                                var path_author_json = path.join(__dirname, '../' + config.content.repository.name + '/authors', article_obj.author + '.json');
-
-                                fs.readFile(path_author_json, 'utf8', function (err3, author_json) {
-                                    if (err3) {
-                                        res.send('Error loading MARKDOWN article file');
-                                    }
-                                    else {
-                                        // set markdown to html content in article object
-                                        article_obj.content = md(article_markdown);
-
-                                        // set date from string reading
-                                        article_obj.date = moment(article_obj.date).fromNow();
-
-                                        if (article_obj.update != "") {
-                                            article_obj.update = moment(article_obj.update).fromNow();
-                                        }
-
-                                        // set author object
-                                        var author_obj = JSON.parse(author_json);
-
-                                        // set md5 hash to load picture from gravatar.com
-                                        author_obj.picture = crypto.createHash('md5').update(author_obj.email).digest("hex");
-
-                                        // set author object on article object
-                                        article_obj.author = author_obj;
-
-                                        memjs.set(mkey, article_obj);
-
-                                        // load article template with article object
-                                        res.render('article', { data: article_obj });
-                                    }
-                                });
-
-                            }
-                        });
-                    }
-                });
-
-
-            }
-        });
-
-
-        /*
-
 
         // set path to article files
         var path_article_json = path.join(__dirname, '../' + config.content.repository.name + '/articles', req.params.slug + '.json');
@@ -312,7 +200,6 @@ exports.article = function (req, res) {
                 });
             }
         });
-        */
     }
 
     return out();
