@@ -535,6 +535,10 @@ li.L9 {
         width: 32px !important;
         height: 32px !important;
     }
+
+    .thumbnails .span4{
+        height: 200px !important;
+    }
 }
 
 @media screen and (max-width: 320px) {
