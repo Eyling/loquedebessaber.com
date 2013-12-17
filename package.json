@@ -6,6 +6,7 @@
         "jade":"0.34.1",
         "moment":"2.1.0",
         "node-markdown":"0.1.1",
-        "feed":"0.2.5"
+        "feed":"0.2.5",
+	"newrelic":"1.2.0"
     }
 }
