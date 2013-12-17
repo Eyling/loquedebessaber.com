@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var newrelic = require('newrelic');
 
 var controllers = require('./controllers');
 
