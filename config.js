@@ -15,6 +15,6 @@ exports.web = web;
 
 var repository = {};
 
-repository.exec = '/sites/loquedebessaber.com/loquedebessaber_content/post-receive.sh';
+repository.exec = 'sh /sites/loquedebessaber.com/loquedebessaber_content/post-receive.sh';
 
 exports.repository = repository;
