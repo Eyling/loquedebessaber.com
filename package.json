@@ -7,6 +7,6 @@
         "moment":"2.5.1",
         "node-markdown":"0.1.1",
         "feed":"0.2.6",
-	"newrelic":"1.2.0"
+	    "newrelic":"1.3.2"
     }
 }
