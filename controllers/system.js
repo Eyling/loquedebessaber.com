@@ -17,7 +17,7 @@ exports.home = function (req, res) {
     var data = {};
     data.title = config.web.title;
     data.type = 'home';
-    data.articles = helpers.fs.getArticles();
+    data.articles = JSON.parse( helpers.fs.getArticles() );
     res.render('index', { data: data });
 }
 
