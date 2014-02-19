@@ -8,6 +8,7 @@ var crypto = require('crypto');
 var moment = require('moment');
 var config = require('../config');
 var Feed = require('feed');
+var helpers = require('../helpers');
 moment.lang("es");
 
 
@@ -145,65 +146,28 @@ exports.articles = function (req, res) {
 
 // article
 exports.article = function (req, res) {
-    function out() {
 
-        // set path to article files
-        var path_article_json = path.join(__dirname, '../' + config.content.repository.name + '/articles', req.params.slug + '.json');
-        var path_article_markdown = path.join(__dirname, '../' + config.content.repository.name + '/articles', req.params.slug + '.markdown');
-        // load article json
-        fs.readFile(path_article_json, 'utf8', function (err1, article_json) {
-            if (err1) {
-                res.send('Error loading JSON article file');
-            }
-            else {
-                // load article markdown
-                fs.readFile(path_article_markdown, 'utf8', function (err2, article_markdown) {
-                    if (err2) {
-                        res.send('Error loading MARKDOWN article file');
-                    }
-                    else {
-                        // set article object
-                        var article_obj = JSON.parse(article_json);
+    if( helpers.fs.exists( 'json', req.params.slug, 'articles' ) && helpers.fs.exists( 'markdown', req.params.slug, 'articles' )  ){
 
-                        // load author json
-                        var path_author_json = path.join(__dirname, '../' + config.content.repository.name + '/authors', article_obj.author + '.json');
+        var data = JSON.parse( helpers.fs.getContent( 'json', req.params.slug ) );
+        data.content = md(helpers.fs.getContent( 'markdown', req.params.slug ));
+        data.date = moment(data.date).fromNow();
 
-                        fs.readFile(path_author_json, 'utf8', function (err3, author_json) {
-                            if (err3) {
-                                res.send('Error loading MARKDOWN article file');
-                            }
-                            else {
-                                // set markdown to html content in article object
-                                article_obj.content = md(article_markdown);
+        if (data.update != "") {
+            data.update = moment(data.update).fromNow();
+        }
 
-                                // set date from string reading
-                                article_obj.date = moment(article_obj.date).fromNow();
+        var author = helpers.fs.getAuthor( data.author );
+        author.picture = crypto.createHash('md5').update(author.email).digest("hex");
 
-                                if (article_obj.update != "") {
-                                    article_obj.update = moment(article_obj.update).fromNow();
-                                }
+        data.author = author;
 
-                                // set author object
-                                var author_obj = JSON.parse(author_json);
-
-                                // set md5 hash to load picture from gravatar.com
-                                author_obj.picture = crypto.createHash('md5').update(author_obj.email).digest("hex");
-
-                                // set author object on article object
-                                article_obj.author = author_obj;
-
-                                // load article template with article object
-                                res.render('article', { data: article_obj });
-                            }
-                        });
-
-                    }
-                });
-            }
-        });
+        res.render('article', { data: data });
+    }
+    else{
+        res.redirect('/');
     }
 
-    return out();
 }
 
 exports.rss = function(req, res){
