@@ -207,18 +207,7 @@ exports.article = function (req, res) {
 }
 
 exports.rss = function(req, res){
-    var feed = new Feed({
-        title:          'Lo que debes saber',
-        description:    'Blog enfocado en un sentido humanista.',
-        link:           'http://loquedebessaber.com/',
-        image:          'http://loquedebessaber.com/img/logo.png',
-        copyright:      'Todos los derechos reservados 2013, Eyling Montenegro',
-
-        author: {
-            name:       'Eyling Montenegro'
-        }
-    });
-
+    var feed = new Feed(config.rss);
 
     var data = {};
     data.title = config.web.title;

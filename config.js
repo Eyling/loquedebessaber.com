@@ -18,3 +18,17 @@ var repository = {};
 repository.exec = 'sh /sites/loquedebessaber.com/loquedebessaber_content/post-receive.sh';
 
 exports.repository = repository;
+
+var rss = {
+    title:          'Lo que debes saber',
+    description:    'Blog enfocado en un sentido humanista.',
+    link:           'http://loquedebessaber.com/',
+    image:          'http://loquedebessaber.com/img/logo.png',
+    copyright:      'Todos los derechos reservados 2014, Eyling Montenegro',
+
+    author: {
+        name:       'Eyling Montenegro'
+    }
+}
+
+exports.rss = rss;
