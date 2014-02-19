@@ -35,6 +35,8 @@ var getArticles = function(){
 var setArticles = function( type ){
     var directory = path.join(__dirname, '../' + config.content.repository.name + '/' +type + '/', '');
 
+    var outDirectory = path.join(__dirname, '../data/' )
+
     var data = new Array();
 
     var files = fs.readdirSync( directory );
@@ -71,8 +73,12 @@ var setArticles = function( type ){
     output.rows = rows;
     output.title = config.web.title;
 
+    if( !fs.existsSync( outDirectory ) ){
+        fs.mkdirSync( outDirectory );
+    }
+
     // write file
-    fs.writeFileSync(path.join(__dirname, '../data/' + type + '.json'), JSON.stringify(output), 'utf8');
+    fs.writeFileSync(outDirectory + type + '.json', JSON.stringify(output), 'utf8');
 
 }
 

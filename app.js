@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var newrelic = require('newrelic');
+var helpers = require('./helpers');
 
 var controllers = require('./controllers');
 
@@ -13,6 +14,8 @@ app.get('/articulo/:slug', controllers.system.article);
 app.post('/hook', controllers.system.hook);
 
 app.get('/rss', controllers.system.rss);
+
+helpers.fs.setArticles( 'articles' );
 
 
 app.listen(1919);
