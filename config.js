@@ -32,3 +32,11 @@ var rss = {
 }
 
 exports.rss = rss;
+
+var links = {
+    article: 'articulo'
+}
+
+exports.links = links;
+
+exports.lang = 'es';
