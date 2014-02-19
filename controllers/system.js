@@ -75,7 +75,7 @@ exports.rss = function(req, res){
     var data = JSON.parse( helpers.fs.getArticles() );
 
     data.rows.forEach(function(item){
-        feed.item({
+        feed.addItem({
             title:          item.title,
             link:           config.content.domain + item.href,
             date:           new Date(item.date_format),
