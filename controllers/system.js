@@ -12,7 +12,6 @@ var helpers = require('../helpers');
 moment.lang("es");
 
 
-
 // home
 exports.home = function (req, res) {
     var data = {};
@@ -22,8 +21,9 @@ exports.home = function (req, res) {
     res.render('index', { data: data });
 }
 
+
 // hook
-var hook  = function (req, res) {
+exports.hook  = function (req, res) {
     // execute sh command
     exec(config.repository.exec, function(error, stdout, stderr){
         console.log(stdout);
@@ -36,7 +36,6 @@ var hook  = function (req, res) {
     res.send('{status:true}\n');
 }
 
-exports.hook = hook;
 
 // article
 exports.article = function (req, res) {
@@ -64,6 +63,8 @@ exports.article = function (req, res) {
 
 }
 
+
+// rss
 exports.rss = function(req, res){
     var feed = new Feed(config.rss);
 
@@ -72,7 +73,6 @@ exports.rss = function(req, res){
     data.type = 'home';
 
     var data = JSON.parse( helpers.fs.getArticles() );
-
 
     data.rows.forEach(function(item){
         feed.item({
