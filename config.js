@@ -5,7 +5,7 @@ function config(){
             url: 'https://github.com/Eyling/loquedebessaber_content.git',
             name: 'loquedebessaber_content'
         },
-        domain: 'http://loquedebessaber.com/'
+        domain: 'http://loquedebessaber.com'
     }
 
     // web data
@@ -23,7 +23,7 @@ function config(){
         title:          this.web.title,
             description:    'Blog enfocado en un sentido humanista.',
             link:           this.content.domain,
-            image:          this.content.domain + 'img/logo.png',
+            image:          this.content.domain + '/img/logo.png',
             copyright:      'Todos los derechos reservados 2014, Eyling Montenegro',
             author: {
             name:       'Eyling Montenegro'
