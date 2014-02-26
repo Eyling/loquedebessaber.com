@@ -33,11 +33,11 @@ var getArticles = function(){
 
 
 var setArticles = function( type ){
-    var directory = path.join(__dirname, '../' + config.content.repository.name + '/' +type + '/', '');
+    var directory = path.join(__dirname, '../' + config.content.repository.name + '/' +type + '/');
 
-    var outDirectory = path.join(__dirname, '../data/' )
+    var outDirectory = path.join(__dirname, '../data/' );
 
-    var data = new Array();
+    var data = [];
 
     var files = fs.readdirSync( directory );
 
