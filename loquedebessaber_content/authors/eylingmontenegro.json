@@ -1,0 +1,16 @@
+{
+    "name": "Eyling Montenegro",
+    "email": "",
+    "web": "http://www.loquedebessaber.com",
+    "bio": "Estudiante de Trabajo Social y Gestión del Desarrollo en la Universidad Centroamericana UCA. Tengo el sueño de trabajar para lograr generar un cambio social.",
+    "connections": [
+        {
+            "name": "Github",
+            "url": "http://github.com/Eyling"
+        },
+        {
+            "name": "LinkedIn",
+            "url": "http://www.linkedin.com/profile/view?id=206468548"
+        }
+    ]
+}
