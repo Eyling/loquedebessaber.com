@@ -13,11 +13,6 @@ function config(){
         title: 'Lo que debes saber'
     }
 
-    // repository
-    this.repository = {
-        exec: 'sh /sites/loquedebessaber.com/loquedebessaber_content/post-receive.sh'
-    }
-
     // rss
     this.rss = {
         title:          this.web.title,
