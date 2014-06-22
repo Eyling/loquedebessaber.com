@@ -18,4 +18,4 @@ app.get('/rss', controllers.system.rss);
 helpers.fs.setArticles( 'articles' );
 
 
-app.listen(1919);
+app.listen(process.env.PORT || 5000);
