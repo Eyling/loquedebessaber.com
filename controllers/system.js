@@ -1,9 +1,5 @@
 // load require modules
-var sys = require('sys');
-var exec = require('child_process').exec;
-var fs = require('fs');
 var md = require("node-markdown").Markdown;
-var path = require('path');
 var crypto = require('crypto');
 var moment = require('moment');
 var config = require('../config');
@@ -24,10 +20,6 @@ exports.home = function (req, res) {
 
 // hook
 exports.hook  = function (req, res) {
-    // execute sh command
-    exec(config.repository.exec, function(error, stdout, stderr){
-        console.log(stdout);
-    });
 
     // Create json files on data folder
     helpers.fs.setArticles('articles');
