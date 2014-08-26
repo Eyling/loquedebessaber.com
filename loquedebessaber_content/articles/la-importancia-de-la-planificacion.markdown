@@ -1,7 +1,7 @@
 
 ##La importancia de la planificación.
 
-La planificación <italic>“es un medio para mirar al futuro y decidir que hará la organización al futuro”</italic>(Juan W. Lindon, 1999) ésta  puede  ser a largo, mediano y corto plazo.
+La planificación “es un medio para mirar al futuro y decidir que hará la organización al futuro”(Juan W. Lindon, 1999) ésta  puede  ser a largo, mediano y corto plazo.
 
 Los planes pueden ser generales o  específicos y  estar dirigidos a áreas, departamentos o sectores y enfocadas a un tema en específico.
 
