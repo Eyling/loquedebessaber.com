@@ -6315,3 +6315,7 @@ img.emoji {
   padding: 10px;
   border-radius: 3px;
 }
+
+.pagination {
+  text-align: center;
+}
