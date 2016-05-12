@@ -6304,3 +6304,8 @@ pre > code {
 img.emoji {
   width: 16px;
   height: 16px; }
+
+
+.panel-body {
+  color: #000000 !important;
+}
