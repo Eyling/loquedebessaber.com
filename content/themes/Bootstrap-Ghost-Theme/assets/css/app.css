@@ -6240,7 +6240,8 @@ pre > code {
   margin: 3px;
   display: inline-block;
   position: static;
-  border-radius: 10px; }
+  border-radius: 10px;
+  font-size: 8px; }
 
 .img-logo-container {
   height: 150px;
