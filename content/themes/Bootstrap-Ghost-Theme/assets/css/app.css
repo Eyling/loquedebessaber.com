@@ -6318,4 +6318,5 @@ img.emoji {
 
 .pagination {
   text-align: center;
+  width: 100% !important;
 }
