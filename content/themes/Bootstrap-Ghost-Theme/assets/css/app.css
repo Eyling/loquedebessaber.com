@@ -6241,7 +6241,7 @@ pre > code {
   display: inline-block;
   position: static;
   border-radius: 10px;
-  font-size: 8px; }
+  font-size: 10px; }
 
 .img-logo-container {
   height: 150px;
@@ -6312,4 +6312,6 @@ img.emoji {
 
 .older-posts, .newer-posts{
   background-color: #f5f5f5 !important;
+  padding: 10px;
+  border-radius: 3px;
 }
