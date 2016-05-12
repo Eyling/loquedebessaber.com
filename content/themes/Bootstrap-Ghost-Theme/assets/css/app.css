@@ -6309,3 +6309,7 @@ img.emoji {
 .panel-body {
   color: #404040 !important;
 }
+
+.older-posts, .newer-posts{
+  background-color: #f5f5f5 !important;
+}
