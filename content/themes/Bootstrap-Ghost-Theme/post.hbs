@@ -5,26 +5,40 @@
 <section class="container">
   <section class="row">
     <section class="col-md-9">
-        <div class="panel panel-default">
-                <header class="panel-heading">
-                    <h3 class="panel-title"><h2>{{title}}</h2>
-                    <p><time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time></p>
-                    {{tags prefix="on " separator=" | "}}</h3>
-                </header>
-                <div class="panel-body" id="text-content">
-                    {{content}}
-            </div>
+      <div class="panel panel-default">
+        <header class="panel-heading">
+          <h3 class="panel-title"><h2>{{title}}</h2>
+            <p><time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time></p>
+            {{tags prefix="on " separator=" | "}}</h3>
+          </header>
+          <div class="panel-body" id="text-content">
+            {{content}}
+
+            <div id="disqus_thread"></div>
+          </div>
         </div>
-    </section>
-    <aside class="col-md-3">
+      </section>
+      <aside class="col-md-3">
         <div class="panel panel-default panel-post">
-            <header class="panel-heading">
-                    <h3 class="panel-title">{{author.name}}</h3>
-            </header>
-            <div class="panel-body panel-body-profile" style="background-image: url('{{author.image}}')"></div>
-            <footer class="panel-footer">{{author.bio}}</footer>
+          <header class="panel-heading">
+            <h3 class="panel-title">{{author.name}}</h3>
+          </header>
+          <div class="panel-body panel-body-profile" style="background-image: url('{{author.image}}')"></div>
+          <footer class="panel-footer">{{author.bio}}</footer>
         </div>
-    </aside>
+      </aside>
+    </section>
   </section>
-</section>
-{{/post}}
+  <script type="text/javascript">
+      var disqus_shortname = 'loquedebessabercom'; // required: replace example with your forum shortname
+      var disqus_identifier = '{{post.id}}';
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  {{/post}}
