@@ -6232,8 +6232,7 @@ pre > code {
   font-family: 'Lobster', sans-serif;
   text-shadow: 0 0 5px black; }
 
-.intro-header {
-  background-color: #befff7; }
+.intro-header { }
 
 .tags > a {
   background-color: white !important;
