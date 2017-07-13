@@ -1062,7 +1062,7 @@ body {
   font-size: 14px;
   line-height: 1.42857;
   color: #333333;
-  background-color: #fecccb; }
+  background-color: ##befff7; }
 
 input,
 button,
@@ -6232,7 +6232,7 @@ pre > code {
   text-shadow: 0 0 5px black; }
 
 .intro-header {
-  background-color: #fecccb; }
+  background-color: ##befff7; }
 
 .tags > a {
   background-color: white !important;
